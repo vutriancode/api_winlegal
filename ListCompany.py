@@ -62,5 +62,3 @@ class ListCompany:
         except Exception as e:
             print(e)
         return result
-a = ListCompany()
-print(a.get_list_company("0108762187"))
