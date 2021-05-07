@@ -47,12 +47,20 @@ class ListCompany:
             data = soup.find("div",{"class":"jumbotron"}).text
             data  = data.split("            ")
             loai_hinh = data[2].replace("\n","")
-
-            loai_hinh = loai_hinh.replace(" \r","").split(": ")[1]
-            ngay_cap =data[-4].replace("\n","").split(": ")[1]
-            result["loai_hinh_doanh_nghiep"] = loai_hinh
-            result["ngay_cap_phep"] = ngay_cap
-        
+            try:
+                loai_hinh = [i for i in data if "Loại hình doanh nghiệp" in i][0]
+                loai_hinh = loai_hinh.replace(" \r","").split(": ")[1]
+                result["loai_hinh_doanh_nghiep"] = loai_hinh
+            except:
+                pass
+            try:
+                loai_hinh = [i for i in data if "Ngày cấp giấy phép" in i][0]
+                ngay_cap =data[-4].replace("\n","").split(": ")[1]
+                result["ngay_cap_phep"] = ngay_cap
+            except:
+                pass
         except Exception as e:
             print(e)
         return result
+a = ListCompany()
+print(a.get_list_company("0108762187"))
