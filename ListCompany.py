@@ -53,8 +53,6 @@ class ListCompany:
             result["loai_hinh_doanh_nghiep"] = loai_hinh
             result["ngay_cap_phep"] = ngay_cap
         
-            print(result)
-
         except Exception as e:
             print(e)
         return result
