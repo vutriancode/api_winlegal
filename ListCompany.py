@@ -50,12 +50,13 @@ class ListCompany:
             try:
                 loai_hinh = [i for i in data if "Loại hình hoạt động" in i][0]
                 loai_hinh = loai_hinh.replace(" \r","").split(": ")[1]
+                loai_hinh = loai_hinh.replace("\n","")
                 result["loai_hinh_doanh_nghiep"] = loai_hinh
             except:
                 pass
             try:
-                loai_hinh = [i for i in data if "Ngày cấp giấy phép" in i][0]
-                ngay_cap =data[-4].replace("\n","").split(": ")[1]
+                ngay_cap = [i for i in data if "Ngày cấp giấy phép" in i][0]
+                ngay_cap =ngay_cap.replace("\n","").split(": ")[1]
                 result["ngay_cap_phep"] = ngay_cap
             except:
                 pass
