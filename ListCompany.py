@@ -48,7 +48,7 @@ class ListCompany:
             data  = data.split("            ")
             loai_hinh = data[2].replace("\n","")
             try:
-                loai_hinh = [i for i in data if "Loại hình doanh nghiệp" in i][0]
+                loai_hinh = [i for i in data if "Loại hình hoạt động" in i][0]
                 loai_hinh = loai_hinh.replace(" \r","").split(": ")[1]
                 result["loai_hinh_doanh_nghiep"] = loai_hinh
             except:
